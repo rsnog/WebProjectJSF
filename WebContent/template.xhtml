@@ -1,27 +1,33 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Página JSF padrão</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>PÃ¡gina JSF padrÃ£o</title>
 </h:head>
+
 <h:body>
-<h:outputText value="Hello Word!!!" /><br/><br/>
-<p:clock> </p:clock> <br/>
-<ui:insert name="cabecalho">
-<p:separator></p:separator>
-</ui:insert>
+	<h:panelGrid id="grid2" cellpadding="3" columns="2"
+		style="margin-bottom:10px">
+		<h:outputText value="Hello Word!!!" />
+		<p:clock />
+	</h:panelGrid>
 
-<ui:insert name="corpo">
+	<ui:insert name="cabecalho">
+		<p:separator />
+	</ui:insert>
 
-</ui:insert>
+	<ui:insert name="corpo">
+	</ui:insert>
 
-<ui:insert name="rodape">
-<p:separator></p:separator>
-</ui:insert>
+	<ui:insert name="rodape">
+		<p:separator />
+	</ui:insert>
+	
 </h:body>
 </html>

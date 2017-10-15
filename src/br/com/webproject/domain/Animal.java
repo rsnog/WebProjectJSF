@@ -1,4 +1,4 @@
-package br.com.project.bean;
+package br.com.webproject.domain;
 
 import javax.faces.bean.ManagedBean;
 
@@ -9,9 +9,10 @@ public class Animal {
 	private String raca;
 	private String sexo;
 	private int idade;
+	private Animal animal;
 
 	public String getNome() {
-		return nome;	
+		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -42,12 +43,23 @@ public class Animal {
 		this.idade = idade;
 	}
 
+	public Animal getAnimal() {
+		if(animal == null) {
+			animal = new Animal();
+		}
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
+
 	public void cadastrar() {
 		System.out.println("Cadastar um animal: " + nome);
 	}
 
-	public void dormir() {
-		System.out.println("Dormir um animal: " + nome);
+	public void voltar() {
+		animal = null;
 	}
 
 }

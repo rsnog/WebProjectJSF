@@ -9,19 +9,44 @@
 
 <ui:composition template="template.xhtml">
 	<ui:define name="corpo">
-		<h:form>
-	Nome:<h:inputText value="#{animal.nome}"></h:inputText>
-			<br />
-	Raça:<h:inputText value="#{animal.raca}"></h:inputText>
-			<br />
-	Sexo:<h:inputText value="#{animal.sexo}"></h:inputText>
-			<br />
-	Idade:<h:inputText value="#{animal.idade}"></h:inputText>
-			<br />
-			<h:commandButton value="Cadastrar" action="Visualizar"
-				actionListener="#{animal.cadastrar()}" />
+
+		<h:form id="form1">
+			<h:panelGrid id="grid1" cellpadding="3" columns="2"
+				style="margin-bottom:10px">
+				<p:outputLabel for="nome" value="Nome:" />
+				<h:inputText id="nome" value="#{animal.animal.nome}" />
+				<p:outputLabel for="raca" value="Raça:" />
+				<h:inputText id="raca" value="#{animal.animal.raca}" />
+				<p:outputLabel for="sexo" value="Sexo:" />
+				<h:inputText id="sexo" value="#{animal.animal.sexo}" />
+				<p:outputLabel for="idade" value="Idade:" />
+				<h:inputText id="idade" value="#{animal.animal.idade}" />
+			</h:panelGrid>
+			<h:panelGrid id="grid2" cellpadding="3" columns="2"
+				style="margin-bottom:10px">
+				<h:commandButton value="Dados para outra página" action="Visualizar"
+					actionListener="#{animal.cadastrar()}" />
+				<h:commandButton value="Dados para outro 'form'"
+					actionListener="#{animal.cadastrar}" update=":form2:grid3" />
+			</h:panelGrid>
+		</h:form>
+
+		<p:separator />
+
+		<h:form id="form2">
+			<h:panelGrid id="grid3" cellpadding="2" columns="8"
+				style="margin-bottom:10px">
+				<p:outputLabel for="texto1" value="Nome:" />
+				<h:inputText id="texto1" value="#{animal.animal.nome}" />
+				<p:outputLabel for="texto2" value="Raça:" />
+				<h:inputText id="texto2" value="#{animal.animal.raca}" />
+				<p:outputLabel for="texto3" value="Sexo:" />
+				<h:inputText id="texto3" value="#{animal.animal.sexo}" />
+				<p:outputLabel for="texto4" value="Idade:" />
+				<h:inputText id="texto4" value="#{animal.animal.idade}" />
+			</h:panelGrid>
 		</h:form>
 	</ui:define>
-	
-</ui:composition>	
+
+</ui:composition>
 </html>

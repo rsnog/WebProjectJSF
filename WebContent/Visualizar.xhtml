@@ -7,19 +7,26 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="template.xhtml">
+
 	<ui:define name="corpo">
 
 		<h:form>
-	Nome:<h:outputText value="#{animal.nome}" />
-			<br />
-	Raça:<h:outputText value="#{animal.raca}" />
-			<br />
-	Sexo:<h:outputText value="#{animal.sexo}" />
-			<br />
-	Idade:<h:outputText value="#{animal.idade}" />
-			<br />
-			<h:commandButton value="Voltar" action="index"></h:commandButton>
+			<h:panelGrid id="grid1" cellpadding="3" columns="2"
+				style="margin-bottom:10px">
+				<p:outputLabel for="nome" value="Nome:" />
+				<h:inputText id="nome" value="#{animal.animal.nome}" />
+				<p:outputLabel for="raca" value="Raça:" />
+				<h:inputText id="raca" value="#{animal.animal.raca}" />
+				<p:outputLabel for="sexo" value="Sexo:" />
+				<h:inputText id="sexo" value="#{animal.animal.sexo}" />
+				<p:outputLabel for="idade" value="Idade:" />
+				<h:inputText id="idade" value="#{animal.animal.idade}" />
+			</h:panelGrid>
+			<h:commandButton value="Voltar" actionListener="#{animal.voltar}"
+				action="index" update=":form1:grid1 :form2:texto1" />
 		</h:form>
+
 	</ui:define>
+
 </ui:composition>
 </html>
