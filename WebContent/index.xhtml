@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -14,36 +14,53 @@
 			<h:panelGrid id="grid1" cellpadding="3" columns="2"
 				style="margin-bottom:10px">
 				<p:outputLabel for="nome" value="Nome:" />
-				<h:inputText id="nome" value="#{animal.animal.nome}" />
-				<p:outputLabel for="raca" value="Raça:" />
-				<h:inputText id="raca" value="#{animal.animal.raca}" />
-				<p:outputLabel for="sexo" value="Sexo:" />
-				<h:inputText id="sexo" value="#{animal.animal.sexo}" />
-				<p:outputLabel for="idade" value="Idade:" />
-				<h:inputText id="idade" value="#{animal.animal.idade}" />
+				<h:inputText id="nome" value="#{listaAnimal.objAnimal.nome}" />
+				<p:outputLabel for="raca" value="RaÃ§a:" />
+				<h:inputText id="raca" value="#{listaAnimal.objAnimal.raca}" />
 			</h:panelGrid>
-			<h:panelGrid id="grid2" cellpadding="3" columns="2"
+			<h:panelGrid id="grid2" cellpadding="3" columns="4"
 				style="margin-bottom:10px">
-				<h:commandButton value="Dados para outra página" action="Visualizar"
-					actionListener="#{animal.cadastrar()}" />
+				<h:commandButton value="Dados para outra pÃ¡gina" action="Visualizar"
+					actionListener="#{listaAnimal.cadastrar}" />
 				<h:commandButton value="Dados para outro 'form'"
-					actionListener="#{animal.cadastrar}" update=":form2:grid3" />
+					actionListener="#{listaAnimal.cadastrar}"
+					update=":form2:grid2 :form3:grid3" />
+				<h:commandButton value="Adicionar a Lista"
+					actionListener="#{listaAnimal.adicionar}"
+					update=":form2:grid2 :form3:grid3" />
+				<h:commandButton value="Limpar a Lista"
+					actionListener="#{listaAnimal.limparLista}"
+					update=":form2:grid2 :form3:grid3" />
 			</h:panelGrid>
 		</h:form>
 
 		<p:separator />
 
 		<h:form id="form2">
-			<h:panelGrid id="grid3" cellpadding="2" columns="8"
+			<h:panelGrid id="grid2" cellpadding="2" columns="8"
 				style="margin-bottom:10px">
 				<p:outputLabel for="texto1" value="Nome:" />
-				<h:inputText id="texto1" value="#{animal.animal.nome}" />
-				<p:outputLabel for="texto2" value="Raça:" />
-				<h:inputText id="texto2" value="#{animal.animal.raca}" />
-				<p:outputLabel for="texto3" value="Sexo:" />
-				<h:inputText id="texto3" value="#{animal.animal.sexo}" />
-				<p:outputLabel for="texto4" value="Idade:" />
-				<h:inputText id="texto4" value="#{animal.animal.idade}" />
+				<h:inputText id="texto1" value="#{listaAnimal.objAnimal.nome}" />
+				<p:outputLabel for="texto2" value="RaÃ§a:" />
+				<h:inputText id="texto2" value="#{listaAnimal.objAnimal.raca}" />
+			</h:panelGrid>
+		</h:form>
+
+		<p:separator />
+
+		<h:form id="form3">
+			<h:panelGrid id="grid3" cellpadding="2" columns="8"
+				style="margin-bottom:10px">
+				<p:selectOneMenu value="#{listaAnimal.listaAnimal}">
+					<f:selectItem itemLabel="Selecione um Nome" itemValue="" />
+					<f:selectItems value="#{listaAnimal.listaAnimal}" var="animal"
+						itemValue="#{nome}" itemLabel="#{animal.nome}" />
+				</p:selectOneMenu>
+				<p:selectOneMenu value="#{listaAnimal.listaAnimal}">
+					<f:selectItem itemLabel="Selecione uma RaÃ§a" itemValue="" />
+					<f:selectItems value="#{listaAnimal.listaAnimal}" var="animal"
+						itemValue="#{raca}" itemLabel="#{animal.raca}" />
+				</p:selectOneMenu>
 			</h:panelGrid>
 		</h:form>
 	</ui:define>

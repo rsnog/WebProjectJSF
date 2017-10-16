@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -14,16 +14,13 @@
 			<h:panelGrid id="grid1" cellpadding="3" columns="2"
 				style="margin-bottom:10px">
 				<p:outputLabel for="nome" value="Nome:" />
-				<h:inputText id="nome" value="#{animal.animal.nome}" />
-				<p:outputLabel for="raca" value="Raça:" />
-				<h:inputText id="raca" value="#{animal.animal.raca}" />
-				<p:outputLabel for="sexo" value="Sexo:" />
-				<h:inputText id="sexo" value="#{animal.animal.sexo}" />
-				<p:outputLabel for="idade" value="Idade:" />
-				<h:inputText id="idade" value="#{animal.animal.idade}" />
+				<h:inputText id="nome" value="#{listaAnimal.objAnimal.nome}" />
+				<p:outputLabel for="raca" value="RaÃ§a:" />
+				<h:inputText id="raca" value="#{listaAnimal.objAnimal.raca}" />
 			</h:panelGrid>
-			<h:commandButton value="Voltar" actionListener="#{animal.voltar}"
-				action="index" update=":form1:grid1 :form2:texto1" />
+			<h:commandButton value="Voltar"
+				actionListener="#{listaAnimal.voltar}" action="index"
+				update=":form1:grid1 :form2:texto1" />
 		</h:form>
 
 	</ui:define>
